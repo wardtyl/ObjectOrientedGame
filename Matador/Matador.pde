@@ -4,6 +4,13 @@ void setup(){
 
 void draw(){
   background(255);
+  
+    //Matador Hat
+  ellipseMode(CORNER);
+  noStroke();
+  ellipse(180, 310, 40, 30);
+  fill(214, 190, 147);
+  
   //Right Vertical Line Top of Building
   line(340, 0, 370, 400);
   
@@ -35,4 +42,10 @@ void draw(){
   //Left Building Lines Bottom
   line(0, 280, 39, 280);
   line(39, 280, 63, 343);
+  
+  //Matador Hat
+  ellipseMode(CORNER);
+  noStroke();
+  ellipse(180, 310, 40, 30);
+  fill(214, 190, 147);
 }
