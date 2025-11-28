@@ -7,9 +7,11 @@ class People {
   }
 
   void displayPeople() {
-    //Peoples Heads
-    //ellipse();
+    ellipseMode(CORNER);
     noStroke();
+    //Peoples Heads
+    ellipse(20, 20
+    fill(234, 208, 159);
     //Peoples Bodies
     //ellipse(x, y, 20, 20)
   }

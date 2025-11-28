@@ -12,6 +12,7 @@ void draw(){
   fill(214, 190, 147);
   
   //Right Vertical Line Top of Building
+  stroke(0);
   line(340, 0, 370, 400);
   
   //Right Vertical Line Bottom of Building
@@ -43,9 +44,4 @@ void draw(){
   line(0, 280, 39, 280);
   line(39, 280, 63, 343);
   
-  //Matador Hat
-  ellipseMode(CORNER);
-  noStroke();
-  ellipse(180, 310, 40, 30);
-  fill(214, 190, 147);
 }
