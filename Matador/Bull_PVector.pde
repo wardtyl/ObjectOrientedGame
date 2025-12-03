@@ -14,6 +14,7 @@ class Bull {
   void Horn() {
 
     //Bull Head Top Left
+    noStroke();
     fill(112, 138, 206);
     ellipse(position.x + 10, position.y, 40, 50);
 
