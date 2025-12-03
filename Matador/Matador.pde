@@ -2,6 +2,8 @@ Flower[] flower = new Flower[40];
 Bull z;
 
 void setup() {
+  z = new Bull();
+
   size(400, 400);
 
   for (int i = 0; i < flower.length; i++) {
@@ -13,13 +15,24 @@ void setup() {
   }
 }
 
-void draw() {
-  background(255);
 
-if(p != null) {
-  Horn(z.position.x, z.position.y, 200, 100);
-  z.moveBull();
-}
+
+void draw() {
+  background(180, 173, 102);
+
+  if (z != null) {
+    z.Horn();
+    z.moveBull();
+  }
+
+  //Horn();
+
+  //Matador Head
+  ellipseMode(CORNER);
+  noStroke();
+  fill(214, 190, 147);
+  ellipse(180, 310, 40, 40);
+
   //Matador Hat
   noStroke();
   fill(231, 234, 130);
@@ -89,6 +102,43 @@ if(p != null) {
   fill(0);
   rect(230, 360, 60, 5);
 
+  //Top Right Building Colour
+  noStroke();
+  fill(134, 160, 229);
+  triangle(320, -100, 323, 60, 500, 60);
+
+  //Top Right Building Colour 2
+  fill(134, 160, 229);
+  triangle(323, 60, 325, 120, 345, 60);
+
+  //Middle Right Building Colour
+  fill(227, 144, 209);
+  triangle(325, 120, 345, 60, 400, 60);
+
+  //Middle Right Building Colour 2
+  fill(227, 144, 209);
+  triangle(325, 120, 400, 265, 400, 60);
+
+  //Middle Right Building Colour 3
+  fill(227, 144, 209);
+  triangle(325, 120, 400, 260, 333, 262);
+
+  //Middle Right Building Colour 4
+  fill(227, 144, 209);
+  triangle(333, 262, 335, 320, 360, 260);
+
+  //Bottom Right Building Colour
+  fill(119, 227, 148);
+  triangle(400, 260, 400, 400, 342, 400);
+
+  //Bottom Right Building Colour 2
+  fill(119, 227, 148);
+  triangle(342, 400, 400, 260, 337, 314);
+
+  //Bottom Right Building Colour 3
+  fill(119, 227, 148);
+  triangle(337, 314, 400, 260, 360, 260);
+
   //Right Vertical Line Top of Building
   stroke(0);
   line(340, 0, 370, 400);
@@ -104,7 +154,58 @@ if(p != null) {
   line(360, 260, 400, 260);
   line(360, 260, 336, 313);
 
+  //Top Left Building Colour
+  stroke(229, 240, 85);
+  fill(229, 240, 85);
+  triangle(0, 0, 0, 80, 76, 80);
+
+  //Top Left Building Colour 2
+  noStroke();
+  fill(229, 240, 85);
+  triangle(0, 0, 80, 0, 76, 80);
+
+  //Top Left Building Colour 3
+  fill(229, 240, 85);
+  triangle(76, 80, 54, 80, 73, 133);
+
+  //Middle Top Left Building Colour
+  fill(124, 207, 209);
+  rect(0, 80, 55, 80);
+
+  //Middle Top Left Building Colour 2
+  fill(124, 207, 209);
+  triangle(55, 80, 73, 133, 48, 160);
+
+  //Middle Top Left Building Colour 3
+  fill(124, 207, 209);
+  triangle(48, 160, 73, 133, 70, 210);
+
+  //Middle Bottom Left Building Colour
+  fill(224, 77, 99);
+  rect(0, 160, 48, 120);
+
+  //Middle Bottom Left Building Colour 2
+  fill(224, 77, 99);
+  triangle(48, 160, 70, 210, 39, 280);
+
+  //Middle Bottom Left Building Colour 3
+  fill(224, 77, 99);
+  triangle(39, 280, 70, 210, 63, 343);
+
+  //Bottom Left Building Colour
+  fill(224, 178, 77);
+  rect(0, 280, 39, 120);
+
+  //Bottom Left Building Colour 2
+  fill(224, 178, 77);
+  triangle(39, 280, 63, 343, 30, 400);
+
+  //Bottom Left Building Colour 3
+  fill(224, 178, 77);
+  triangle(63, 343, 30, 400, 60, 400);
+
   //Left Vertical Line Top of Building
+  stroke(0);
   line(60, 0, 30, 400);
 
   //Left Vertical Line Bottom of Building
@@ -122,7 +223,7 @@ if(p != null) {
   line(0, 280, 39, 280);
   line(39, 280, 63, 343);
 
-  for (int i = 0; i < flower.length; i++) {
-    flower[i].displayFlower();
-  }
+  //for (int i = 0; i < flower.length; i++) {
+  //flower[i].displayFlower();
+  //}
 }
