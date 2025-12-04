@@ -1,8 +1,13 @@
 Flower[] flower = new Flower[40];
 Bull z;
+boolean gameOver; // state for game over
+float bullSpeed = 0.05;
+float ratio = 0;
+boolean charging = true;
+boolean targetingLeft = true;
 
 void setup() {
-  z = new Bull();
+  z = new Bull(100);
 
   size(400, 400);
 
@@ -19,11 +24,12 @@ void setup() {
 
 void draw() {
   background(180, 173, 102);
-
-  if (z != null) {
+  
+  if (z != null && gameOver ==  false) {
     z.Horn();
     z.moveBull();
   }
+  gameOver = z.gameOver; // main class game over is equal to the bull gameOver
 
   //Horn();
 
@@ -223,7 +229,15 @@ void draw() {
   line(0, 280, 39, 280);
   line(39, 280, 63, 343);
 
-  //for (int i = 0; i < flower.length; i++) {
-  //flower[i].displayFlower();
-  //}
+  for (int i = 0; i < flower.length; i++) {
+  flower[i].displayFlower();
+  }
+}
+void keyPressed(){
+  if(keyCode == LEFT){
+    z.directionPlayerChoose = 0;
+  }
+  if(keyCode == RIGHT){
+    z.directionPlayerChoose = 1;
+  }
 }

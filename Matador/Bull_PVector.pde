@@ -1,14 +1,23 @@
 class Bull {
-
+  float randomSave;
+  float bullRandom;
+  boolean gameOver = false;
+  int directionPlayerChoose; // 0 is left, 1 is right
+  int bullTimer;
+  int animTimer = 100;
+  int bullMaxTimer = 100;
   PVector position = new PVector(160, 40);
   PVector velocity;
   PVector acceleration = new PVector(0, 1);
   float startingVelocityMagnitude = 5;
 
-  Bull() {
+  Bull(int timer) {
+    bullMaxTimer = timer; // sets timer for bull interval
     velocity = new PVector(0, 1);
     velocity.normalize();
     velocity = new PVector(velocity.x*startingVelocityMagnitude, velocity.y*startingVelocityMagnitude);
+    // sets inital bull timer //
+    bullTimer = bullMaxTimer;
   }
 
   void Horn() {
@@ -72,7 +81,43 @@ class Bull {
   }
 
   void moveBull() {
-    velocity.add(acceleration);
-    position.add(velocity);
+
+    randomSave = bullRandom;
+    bullTimer = bullTimer - 1;
+    // counts down the timer
+    if ( bullTimer < 0)
+    {
+
+      // if the player chooses the correct input
+      println(directionPlayerChoose + " " + randomSave);
+      if (directionPlayerChoose == randomSave) {
+        // for loop used to play animation over time
+        acceleration.y = 1;
+        velocity.add(acceleration);
+        position.add(velocity);
+        // if statement allows timer to run
+        animTimer -= 1;
+        println(animTimer);
+        if (animTimer < 0) {
+          // resets values //
+          position.x = 160;
+          position.y = 40;
+          velocity.x = 0;
+          velocity.y = 0;
+          acceleration.x = 0;
+          acceleration.y = 0;
+          bullRandom = int(random(0, 2));
+          bullTimer = bullMaxTimer; // reset timer
+          println("works win");
+        }
+      } else {
+        // if the play chooses the wrong direction
+        println("works lose");
+        gameOver = true;
+      }
+    }
+    else{
+      animTimer = 100;// resets timer
+    }
   }
 }
