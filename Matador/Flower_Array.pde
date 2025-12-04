@@ -9,7 +9,6 @@ color e;
     b = d;
   }
   
-
   void displayFlower() {
     
     ellipseMode(CORNER);
