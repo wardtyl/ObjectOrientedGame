@@ -24,17 +24,21 @@ void setup() {
 }
 
 void draw() {
+
+  //When game state is equal to zero, draw game
   if (gameState == 0) {
     background(180, 173, 102);
+
 
     if (z != null && gameOver ==  false) {
       z.Horn();
       z.moveBull();
     }
-    gameOver = z.gameOver; // main class game over is equal to the bull gameOver
 
-    //Horn();
+    // Main tab game over is equal to the bull gameOver
+    gameOver = z.gameOver;
 
+    //Draw Background Shapes
     Shapes();
 
     //Flowers
@@ -43,10 +47,12 @@ void draw() {
     }
 
     if (z.gameOver == true) {
+      //Game over triggers game over screen
       gameState = 1;
       z.gameOver = false;
     }
-  } else if (gameState == 1) { //if game over, trigger a new screen saying game over
+  } else if (gameState == 1) {
+    //If game over, trigger a new screen saying game over
     background(250, 121, 121);
     fill(255);
     text("You Lose... Click the mouse to restart", width/2, height/2);
@@ -67,7 +73,7 @@ void mousePressed() {
   //Mouse Press on game over screen triggers new game
   if (gameState == 1) {
     gameState = 0;
-    //determines final speed of bull (originally 100)
+    //Determines final speed of bull (originally 100, possibly change based on difficulty)
     z = new Bull(int(random(60, 60*3)));
   }
 }
